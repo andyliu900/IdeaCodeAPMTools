@@ -1,0 +1,9 @@
+[submodule "app/src/main/cpp/bytehook"]
+	path = app/src/main/cpp/bytehook
+	url = https://gitcode.com/gh_mirrors/bh/bhook.git
+[submodule "appToolsLib/src/main/cpp/bytehook"]
+	path = appToolsLib/src/main/cpp/bytehook
+	url = https://gitcode.com/gh_mirrors/bh/bhook.git
+[submodule "apmToolsLib/src/main/cpp/bytehook"]
+	path = apmToolsLib/src/main/cpp/bytehook
+	url = https://gitcode.com/gh_mirrors/bh/bhook.git

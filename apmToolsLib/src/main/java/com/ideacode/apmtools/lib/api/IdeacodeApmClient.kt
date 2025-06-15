@@ -22,11 +22,9 @@ import com.ideacode.apmtools.lib.util.ApmLogX
  * @UpdateRemark:
  * @Version:        1.0
  */
-open class IdeacodeApmClient {
+object IdeacodeApmClient {
 
-    companion object {
-        const val SUB_TAG = "IdeacodeApmClient"
-    }
+    private const val SUB_TAG = "IdeacodeApmClient"
 
     @Volatile
     private var isStart = false
@@ -66,7 +64,7 @@ open class IdeacodeApmClient {
         }
 
         isStart = true;
-        ApmLogX.d(APM_TAG, SUB_TAG, "APM开始任务:startWork")
+        ApmLogX.d(SUB_TAG, "APM开始任务:startWork")
 
         Manager.instance.startWork()
     }

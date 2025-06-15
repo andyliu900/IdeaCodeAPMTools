@@ -10,6 +10,10 @@ material = "1.10.0"
 activity = "1.8.0"
 constraintlayout = "2.1.4"
 
+# 第三方库
+leakCanary = "2.12"
+bytehook = "1.1.1"
+shadowhook = "1.1.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -20,6 +24,11 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+
+# 第三方库
+leakCanary = { group = "com.squareup.leakcanary", name = "leakcanary-android", version.ref = "leakCanary" }
+bytehook = { group = "com.bytedance", name = "bytehook", version.ref = "bytehook" }
+shadowhook = { group = "com.bytedance.android", name = "shadowhook", version.ref = "shadowhook" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

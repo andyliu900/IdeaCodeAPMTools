@@ -33,6 +33,12 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    packagingOptions {
+        pickFirst("lib/arm64-v8a/libbytehook.so")
+        pickFirst("lib/arm64-v8a/libshadowhook.so")
+        pickFirst("lib/armeabi-v7a/libbytehook.so")
+        pickFirst("lib/armeabi-v7a/libshadowhook.so")
+    }
 }
 
 dependencies {
@@ -42,6 +48,9 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
+    implementation(project(":apmToolsLib"))
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">IdeaCodeAPMTools</string>
+
+    <string name="test_native_leak">Native泄漏检测</string>
 </resources>

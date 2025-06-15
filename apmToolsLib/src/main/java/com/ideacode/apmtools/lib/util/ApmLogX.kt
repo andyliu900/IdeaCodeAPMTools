@@ -95,37 +95,49 @@ object ApmLogX {
     // === Private Implementation ===
 
     private fun showLongLog(tag: String, subTag: String?, msg: String, type: LogType) {
-        val trimmedMsg = msg.trim()
-        var index = 0
-        val maxLength = 4000
-        var sub: String
-
-        while (index < trimmedMsg.length) {
-            sub = if (trimmedMsg.length <= index + maxLength) {
-                trimmedMsg.substring(index)
-            } else {
-                trimmedMsg.substring(index, index + maxLength)
-            }
-            index += maxLength
-
-            val formattedSub = sub.trim()
-
-            val logMessage = if (subTag.isNullOrEmpty()) {
-                formattedSub
-            } else {
-                String.format(LOG_FORMATTER, ProcessUtils.getCurrentProcessName(), subTag,
-                    formattedSub)
-            }
-
-            when (type) {
-                LogType.VERBOSE -> Log.v(tag, logMessage)
-                LogType.DEBUG -> Log.d(tag, logMessage)
-                LogType.INFO -> Log.i(tag, logMessage)
-                LogType.WARN -> Log.w(tag, logMessage)
-                LogType.ERROR -> Log.e(tag, logMessage)
-                LogType.ASSERT -> Log.wtf(tag, logMessage)
-            }
+        when (type) {
+            LogType.VERBOSE -> Log.v(tag, "[$subTag] $msg")
+            LogType.DEBUG -> Log.d(tag, "[$subTag] $msg")
+            LogType.INFO -> Log.i(tag, "[$subTag] $msg")
+            LogType.WARN -> Log.w(tag, "[$subTag] $msg")
+            LogType.ERROR -> Log.e(tag, "[$subTag] $msg")
+            LogType.ASSERT -> Log.wtf(tag, "[$subTag] $msg")
         }
+
+
+
+
+//        val trimmedMsg = msg.trim()
+//        var index = 0
+//        val maxLength = 4000
+//        var sub: String
+//
+//        while (index < trimmedMsg.length) {
+//            sub = if (trimmedMsg.length <= index + maxLength) {
+//                trimmedMsg.substring(index)
+//            } else {
+//                trimmedMsg.substring(index, index + maxLength)
+//            }
+//            index += maxLength
+//
+//            val formattedSub = sub.trim()
+//
+//            val logMessage = if (subTag.isNullOrEmpty()) {
+//                formattedSub
+//            } else {
+//                String.format(LOG_FORMATTER, ProcessUtils.getCurrentProcessName(), subTag,
+//                    formattedSub)
+//            }
+//
+//            when (type) {
+//                LogType.VERBOSE -> Log.v(tag, logMessage)
+//                LogType.DEBUG -> Log.d(tag, logMessage)
+//                LogType.INFO -> Log.i(tag, logMessage)
+//                LogType.WARN -> Log.w(tag, logMessage)
+//                LogType.ERROR -> Log.e(tag, logMessage)
+//                LogType.ASSERT -> Log.wtf(tag, logMessage)
+//            }
+//        }
     }
 
 }

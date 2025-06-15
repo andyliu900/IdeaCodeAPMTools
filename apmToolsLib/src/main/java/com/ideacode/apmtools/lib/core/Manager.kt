@@ -3,7 +3,10 @@
  */
 package com.ideacode.apmtools.lib.core
 
+import com.ideacode.apmtools.lib.api.MemoryMonitorStrategy
+import com.ideacode.apmtools.lib.api.MonitorContext
 import com.ideacode.apmtools.lib.util.ApmLogX
+import leakcanary.LeakCanary
 
 /**
  * Copyright (C), 2021-2025, 无业游民
@@ -77,8 +80,10 @@ class Manager private constructor() {
         ApmLogX.d(SUB_TAG, "startWork!")
 
         mConfig?.let {
+            val monitorContext = MonitorContext()
             if (it.isMonitorMemory) {
-
+                monitorContext.strategy = MemoryMonitorStrategy()
+                monitorContext.startMonitor()
             } else if (it.isMonitorCpu) {
 
             } else if (it.isMonitorCrash) {
