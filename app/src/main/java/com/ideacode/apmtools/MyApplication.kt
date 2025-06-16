@@ -5,6 +5,8 @@ package com.ideacode.apmtools
 
 import android.app.Application
 import android.content.Context
+import android.os.Handler
+import android.os.Looper
 import com.ideacode.apmtools.lib.api.IdeacodeApmClient
 import com.ideacode.apmtools.lib.core.ConfigBuilder
 
@@ -23,6 +25,9 @@ import com.ideacode.apmtools.lib.core.ConfigBuilder
  */
 class MyApplication : Application() {
 
+
+    val handler: Handler = Handler(Looper.getMainLooper())
+
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
     }
@@ -30,7 +35,7 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        initApm()
+        handler.postDelayed({ initApm()}, 2000)
     }
 
     fun initApm() {
